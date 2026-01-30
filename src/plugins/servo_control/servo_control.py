@@ -153,12 +153,15 @@ class ServoControl(BasePlugin):
                 logger.info(f"new Angle: {angle}°")
                 servo_value = self._angle_to_servo_value(angle)
                 self.servo.value = servo_value
-                time.sleep(speed_ms)
+                time.sleep(speed_ms/1000)
             
             # Ensure we reach exact target
             final_value = self._angle_to_servo_value(target_angle)
             self.servo.value = final_value
-            self.servo.close()
+            
+            # Stop sending PWM signals without causing servo twitch
+            time.sleep(0.5)  # Hold position briefly
+            self.servo.value = None
             logger.info(f"Moved servo from {current_angle}° to {target_angle}°")
             
         except Exception as e:
