@@ -47,19 +47,21 @@
                         "refresh": {
                             "interval": 600
                         },
-                        "latest_refresh_time": "2026-01-30T14:32:43.660766+00:00"
+                        "latest_refresh_time": "2026-01-30T16:00:45.227477+00:00"
                     }
                 ],
-                "current_plugin_index": null
+                "current_plugin_index": 0
             }
         ],
-        "active_playlist": null
+        "active_playlist": "Default"
     },
     "refresh_info": {
-        "refresh_time": "2026-01-30T14:59:31.418479+00:00",
-        "image_hash": "b5bdece8e6fe52fd8b72971aac19bd18bd65c0263a3fee989314ab632577a4fa",
-        "refresh_type": "Manual Update",
-        "plugin_id": "newspaper"
+        "refresh_time": "2026-01-30T16:00:45.227477+00:00",
+        "image_hash": "6c9ecf38ef73482822cb0bae305b3321b2665376d68937cfacb4c8c8f4079d54",
+        "refresh_type": "Playlist",
+        "plugin_id": "servo_control",
+        "playlist": "Default",
+        "plugin_instance": "testInstance"
     },
-    "current_servo_angle": 140
+    "current_servo_angle": 27
 }
