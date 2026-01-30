@@ -153,7 +153,7 @@ class ServoControl(BasePlugin):
                 logger.info(f"new Angle: {angle}°")
                 servo_value = self._angle_to_servo_value(angle)
                 self.servo.value = servo_value
-                time.sleep(speed_ms / 1000.0)
+                time.sleep(speed_ms)
             
             # Ensure we reach exact target
             final_value = self._angle_to_servo_value(target_angle)
