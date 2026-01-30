@@ -11,8 +11,9 @@ try:
     from gpiozero import Servo
     from gpiozero.pins.pigpio import PiGPIOFactory
     HARDWARE_AVAILABLE = True
-except ImportError:
-    logger.info("gpiozero not available, servo control will be mocked")
+except ImportError as e:
+    logger.warning(f"gpiozero not available, servo control will be mocked. Error: {e}")
+    logger.info("To enable hardware control, install gpiozero: pip install gpiozero")
     HARDWARE_AVAILABLE = False
 
 DEFAULT_GPIO_PIN = 13

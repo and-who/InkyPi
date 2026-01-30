@@ -56,10 +56,10 @@
         "active_playlist": null
     },
     "refresh_info": {
-        "refresh_time": "2026-01-30T14:36:25.229716+00:00",
-        "image_hash": "73073a80052ed751874b4e1cc72f8d11e1ac057b99b0722251452cba8a88b149",
+        "refresh_time": "2026-01-30T14:59:31.418479+00:00",
+        "image_hash": "b5bdece8e6fe52fd8b72971aac19bd18bd65c0263a3fee989314ab632577a4fa",
         "refresh_type": "Manual Update",
-        "plugin_id": "clock"
+        "plugin_id": "newspaper"
     },
-    "current_servo_angle": 90
+    "current_servo_angle": 140
 }
