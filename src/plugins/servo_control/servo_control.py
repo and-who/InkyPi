@@ -16,7 +16,7 @@ except ImportError as e:
     logger.info("To enable hardware control, install gpiozero: pip install gpiozero")
     HARDWARE_AVAILABLE = False
 
-DEFAULT_GPIO_PIN = 18
+DEFAULT_GPIO_PIN = 13
 DEFAULT_ANGLE = 90
 DEFAULT_SPEED = 10  # milliseconds delay between steps
 MIN_ANGLE = 0
