@@ -150,6 +150,7 @@ class ServoControl(BasePlugin):
             
             # Move incrementally for smooth motion
             for angle in range(int(current_angle), int(target_angle) + step, step):
+                logger.info(f"new Angle: {angle}°")
                 servo_value = self._angle_to_servo_value(angle)
                 self.servo.value = servo_value
                 time.sleep(speed_ms / 1000.0)
@@ -157,7 +158,7 @@ class ServoControl(BasePlugin):
             # Ensure we reach exact target
             final_value = self._angle_to_servo_value(target_angle)
             self.servo.value = final_value
-            
+            self.servo.close()
             logger.info(f"Moved servo from {current_angle}° to {target_angle}°")
             
         except Exception as e:
