@@ -21,8 +21,8 @@
         id="target-angle" 
         name="target_angle" 
         class="form-range" 
-        min="100" 
-        max="1000" 
+        min="0" 
+        max="180" 
         value="90"
         step="1"
     />
@@ -32,14 +32,12 @@
 <div class="form-group">
     <label for="servo-speed" class="form-label">Servo Speed: <span id="speed-display">10ms</span></label>
     <input 
-        type="range" 
+        type="number" 
         id="servo-speed" 
         name="servo_speed" 
         class="form-range" 
-        min="1" 
-        max="100" 
-        value="10"
-        step="1"
+        min="0" 
+        value="100"
     />
     <small class="form-text">Delay between angle steps in milliseconds (lower = faster)</small>
 </div>
