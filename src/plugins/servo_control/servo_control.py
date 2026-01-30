@@ -149,7 +149,7 @@ class ServoControl(BasePlugin):
             step = 1 if target_angle > current_angle else -1
             
             # Move incrementally for smooth motion
-            for angle in range(int(current_angle), int(target_angle) + step, step):
+            for angle in range(int(current_angle), int(target_angle), step):
                 logger.info(f"new Angle: {angle}°")
                 servo_value = self._angle_to_servo_value(angle)
                 self.servo.value = servo_value
