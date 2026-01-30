@@ -102,13 +102,15 @@ class ServoControl(BasePlugin):
             try:
                 # Use pigpio for better PWM control if available
                 factory = PiGPIOFactory()
-                self.servo = Servo(gpio_pin, pin_factory=factory)
+                # SG90 specific pulse widths: 1ms (0°) to 2ms (180°)
+                self.servo = Servo(gpio_pin, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
                 self.current_gpio_pin = gpio_pin
-                logger.info(f"Initialized servo on GPIO pin {gpio_pin}")
+                logger.info(f"Initialized servo on GPIO pin {gpio_pin} with pigpio")
             except Exception as e:
                 logger.warning(f"Failed to use pigpio, falling back to default: {e}")
                 try:
-                    self.servo = Servo(gpio_pin)
+                    # SG90 specific pulse widths for default factory too
+                    self.servo = Servo(gpio_pin, min_pulse_width=1/1000, max_pulse_width=2/1000)
                     self.current_gpio_pin = gpio_pin
                     logger.info(f"Initialized servo on GPIO pin {gpio_pin} (default pins)")
                 except Exception as e:
@@ -150,9 +152,9 @@ class ServoControl(BasePlugin):
             
             # Move incrementally for smooth motion
             for angle in range(int(current_angle), int(target_angle), step):
-                logger.info(f"new Angle: {angle}°")
                 servo_value = self._angle_to_servo_value(angle)
                 self.servo.value = servo_value
+                logger.info(f"new Angle: {angle}° new Servo Value: {servo_value}")
                 time.sleep(speed_ms/1000)
             
             # Ensure we reach exact target
