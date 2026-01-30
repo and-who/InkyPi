@@ -5,7 +5,7 @@
         800,
         480
     ],
-    "orientation": "horizontal",
+    "orientation": "vertical",
     "plugin_order": [
         "calendar",
         "ai_image",
@@ -34,16 +34,32 @@
                 "name": "Default",
                 "start_time": "00:00",
                 "end_time": "24:00",
-                "plugins": [],
+                "plugins": [
+                    {
+                        "plugin_id": "servo_control",
+                        "name": "testInstance",
+                        "plugin_settings": {
+                            "gpio_pin": "13",
+                            "target_angle": "27",
+                            "servo_speed": "10",
+                            "orientation": "current"
+                        },
+                        "refresh": {
+                            "interval": 600
+                        },
+                        "latest_refresh_time": "2026-01-30T14:32:43.660766+00:00"
+                    }
+                ],
                 "current_plugin_index": null
             }
         ],
         "active_playlist": null
     },
     "refresh_info": {
-        "refresh_time": null,
-        "image_hash": null,
-        "refresh_type": null,
-        "plugin_id": null
-    }
+        "refresh_time": "2026-01-30T14:36:25.229716+00:00",
+        "image_hash": "73073a80052ed751874b4e1cc72f8d11e1ac057b99b0722251452cba8a88b149",
+        "refresh_type": "Manual Update",
+        "plugin_id": "clock"
+    },
+    "current_servo_angle": 90
 }
